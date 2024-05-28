@@ -1,0 +1,42 @@
+.container {
+    height: 100%;
+ }
+ 
+ .sidenav {
+    width: 15rem;
+    color: white;
+    background: rgb(81,115,215);
+background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+ }
+ 
+ img {
+    width: 100%;
+    height: 8rem;
+    margin: .8rem auto 1rem auto;
+ }
+ 
+ .sidenav a {
+    color: white;
+ }
+ 
+ .sidenav i {
+    margin-right: .6rem;
+ }
+ 
+ .menu {
+    margin: 1rem 0 0 1rem;
+    color: white;
+    background: rgb(81,115,215);
+background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+ }
+
+ mat-form-field{
+   width: 100%;
+   height: 2%;
+
+ }
+
+ mat-label, mat-select, mat-form-field, mat-label, mat-option{
+   background: rgb(81,115,215);
+   background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+ }
