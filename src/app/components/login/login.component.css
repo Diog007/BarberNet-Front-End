@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+    background: rgb(81,115,215);
+    background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 30rem;
+    margin: auto;
+    background-color: rgb(235, 235, 235);
+    padding: 1.8rem 3.5rem;
+    border-radius: 1rem;
+    gap: 10rem;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+img {
+    height: 23rem;
+    width: 100%;
+    margin: 1.5rem auto 1.5rem auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button {
+    margin-top: 1.5rem;
+}
+
+mat-icon {
+    opacity: .6;
+}
