@@ -3,6 +3,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {  Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -14,10 +16,16 @@ import {  Router, RouterLink, RouterOutlet } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router ) { }
+  constructor(private router: Router, private serviceAuth: AuthService, private toast: ToastrService  ) { }
 
   ngOnInit(): void {
     this.router.navigate([''])
+  }
+
+  logout(): void {
+    this.router.navigate(['login'])
+    this.serviceAuth.logout();
+    this.toast.info("Logout com sucesso", "Logout")
   }
 
 }
