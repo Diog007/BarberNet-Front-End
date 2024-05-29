@@ -9,6 +9,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import {  RouterLink } from '@angular/router';
 import { Credenciais } from '../../models/Credenciais';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -41,6 +43,16 @@ export class LoginComponent implements OnInit {
 
   validaCampos(): boolean{
     return this.login.valid && this.senha.valid;
+  }
+
+  constructor(private service: AuthService, private toast: ToastrService) { }
+
+
+  logar(){
+    this.service.authenticate(this.creds).pipe().subscribe(res => {
+      let token = JSON.parse(JSON.stringify(res)).token
+      this.toast.success(token, "certo")
+    })
   }
 
 }
