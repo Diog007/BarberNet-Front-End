@@ -13,4 +13,9 @@ export class AuthService {
   authenticate(creds: Credenciais) {
     return this.http.post(`${API_CONFIG.baseUrl}login`, creds);
   }
+
+  successfulLogin(authToken: string, login: string) {
+    localStorage.setItem('token', authToken)
+    localStorage.setItem('email', login)
+  }
 }

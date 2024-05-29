@@ -7,7 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {  HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import {  RouterLink } from '@angular/router';
+import {  Router, RouterLink } from '@angular/router';
 import { Credenciais } from '../../models/Credenciais';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
@@ -45,14 +45,25 @@ export class LoginComponent implements OnInit {
     return this.login.valid && this.senha.valid;
   }
 
-  constructor(private service: AuthService, private toast: ToastrService) { }
+  constructor(private service: AuthService, private toast: ToastrService, private router: Router) { }
 
 
   logar(){
     this.service.authenticate(this.creds).pipe().subscribe(res => {
       let token = JSON.parse(JSON.stringify(res)).token
-      this.toast.success(token, "certo")
-    })
+      this.service.successfulLogin(token, this.creds.login)
+      this.router.navigate(['']);
+      this.toast.success("Login realizado com sucesso!", "Login", { timeOut: 3000})
+    }, ((err) => {
+      console.log(err.status);
+      if (err.status === 403) {
+        this.toast.error('Acesso expirado ou login incorreto');
+        this.router.navigate(['login']);
+      }else{
+        this.toast.error("Usuário e/ou senha inválidos")
+      }
+     })
+    );
   }
 
 }
