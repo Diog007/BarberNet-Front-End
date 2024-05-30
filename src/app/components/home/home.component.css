@@ -1,0 +1,16 @@
+.card {
+    width: 90%;
+    margin: 1rem auto;
+    background-color: rgb(235, 235, 235);
+ }
+ 
+ img {
+    height: 52rem;
+    width: 100rem;
+    
+ }
+
+ mat-card-content, mat-card-header {
+   display: flex;
+   justify-content: center;
+ }
