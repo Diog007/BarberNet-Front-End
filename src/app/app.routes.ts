@@ -4,13 +4,15 @@ import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { CabeleireirosListComponent } from './components/cabeleireiros/cabeleireiros-list/cabeleireiros-list.component';
+import { CabeleireirosCreateComponent } from './components/cabeleireiros/cabeleireiros-create/cabeleireiros-create.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
         {path: '', component: NavComponent, canActivate: [authGuard], children: [
             
             {path: 'home', component: HomeComponent},
-            {path: 'cabeleireiros', component: CabeleireirosListComponent}
+            {path: 'cabeleireiros', component: CabeleireirosListComponent},
+            {path: 'cabeleireiros/create', component: CabeleireirosCreateComponent}
 
         ]
     }
