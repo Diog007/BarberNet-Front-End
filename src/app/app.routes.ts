@@ -14,7 +14,7 @@ export const routes: Routes = [
             {path: 'home', component: HomeComponent},
             {path: 'cabeleireiros', component: CabeleireirosListComponent},
             {path: 'cabeleireiros/create', component: CabeleireirosCreateComponent},
-            {path: 'cabeleireiros/delete', component: CabeleireirosDeleteComponent}
+            {path: 'cabeleireiros/delete/:id', component: CabeleireirosDeleteComponent}
 
 
         ]
