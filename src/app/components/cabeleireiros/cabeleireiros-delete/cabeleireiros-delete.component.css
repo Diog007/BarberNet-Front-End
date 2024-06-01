@@ -1,7 +1,7 @@
 .container {
     width: 35rem;
     margin: auto;
-    padding: 1rem;
+    padding: 3rem;
     border-radius: .6rem;
 }
 
@@ -14,7 +14,7 @@ h1, p {
 }
 
 img {
-    height: 11rem;
+    height: 14rem;
     margin: auto;
 }
 
