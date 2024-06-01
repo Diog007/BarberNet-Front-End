@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CabeleireirosListComponent } from './components/cabeleireiros/cabeleireiros-list/cabeleireiros-list.component';
 import { CabeleireirosCreateComponent } from './components/cabeleireiros/cabeleireiros-create/cabeleireiros-create.component';
 import { CabeleireirosDeleteComponent } from './components/cabeleireiros/cabeleireiros-delete/cabeleireiros-delete.component';
+import { CabeleireirosUpdateComponent } from './components/cabeleireiros/cabeleireiros-update/cabeleireiros-update.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -14,8 +15,8 @@ export const routes: Routes = [
             {path: 'home', component: HomeComponent},
             {path: 'cabeleireiros', component: CabeleireirosListComponent},
             {path: 'cabeleireiros/create', component: CabeleireirosCreateComponent},
-            {path: 'cabeleireiros/delete/:id', component: CabeleireirosDeleteComponent}
-
+            {path: 'cabeleireiros/delete/:id', component: CabeleireirosDeleteComponent},
+            {path: 'cabeleireiros/update/:id', component: CabeleireirosUpdateComponent},
 
         ]
     }
