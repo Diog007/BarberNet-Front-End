@@ -28,4 +28,8 @@ export class CabeleireirosService {
     return this.http.delete<CabeleireirosCreate>(`${API_CONFIG.baseUrl}cabeleireiros/${id}`);
   }
 
+  update(cabeleireiro: CabeleireirosCreate): Observable<CabeleireirosCreate> {
+    return this.http.put<CabeleireirosCreate>(`${API_CONFIG.baseUrl}cabeleireiros/${cabeleireiro.id}`, cabeleireiro)
+  }
+
 }
