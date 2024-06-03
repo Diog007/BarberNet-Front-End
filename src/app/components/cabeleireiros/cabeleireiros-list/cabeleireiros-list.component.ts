@@ -22,7 +22,7 @@ export class CabeleireirosListComponent {
 
   ELEMENT_DATA: Cabeleireiros[] = []
 
-  displayedColumns: string[] = ['id', 'nome', 'telefone', 'email', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'telefone', 'email', 'admissao', 'acoes'];
   dataSource = new MatTableDataSource<Cabeleireiros>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

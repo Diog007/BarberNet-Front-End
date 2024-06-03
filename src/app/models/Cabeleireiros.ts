@@ -3,4 +3,5 @@ export interface Cabeleireiros {
     nome: string;
     telefone: string;
     email: string;
+    admissao: string;
 }
