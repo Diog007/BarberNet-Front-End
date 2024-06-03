@@ -4,9 +4,10 @@
 
     <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Cadastrar Cabaleireiros</button>
 
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar...</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Digite aqui" #input>
+      <mat-icon matSuffix></mat-icon>
     </mat-form-field>
 
     <div class="mat-elevation-z8">
