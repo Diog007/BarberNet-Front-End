@@ -37,7 +37,9 @@
             [formControl]="precoEstimado"
             required
             matInput
-            placeholder="R$ 55.50" >
+            type="number"
+            step="0.01"
+            placeholder="R$ 55.50">
         </mat-form-field>
       </form>
 
@@ -49,8 +51,8 @@
             name="statusAgendamento"
             [formControl]="statusAgendamento"
             required>
-              <mat-option value="PENDENTE">PENDENTE</mat-option>
-              <mat-option value="CONFIRMADO">CONFIRMADO</mat-option>
+              <mat-option value="PENDENTE">EM ABERTO</mat-option>
+              <mat-option value="CONFIRMADO">AGUARDANDO</mat-option>
               <mat-option value="CONCLUIDO">CONCLUIDO</mat-option>
               <mat-option value="CANCELADO">CANCELADO</mat-option>
             </mat-select>
@@ -65,10 +67,9 @@
              [formControl]="metodoPagamento"
               required>
               <mat-option value="DINHEIRO">DINHEIRO</mat-option>
-              <mat-option value="CARTAO_CREDITO">CARTAO_CREDITO</mat-option>
-              <mat-option value="CARTAO_DEBITO">CARTAO_DEBITO</mat-option>
+              <mat-option value="CARTAO_CREDITO">CARTAO CREDITO</mat-option>
+              <mat-option value="CARTAO_DEBITO">CARTAO DEBITO</mat-option>
               <mat-option value="PIX">PIX</mat-option>
-              <mat-option value="OUTRO">OUTRO</mat-option>
             </mat-select>
           </mat-form-field>
       </div>
