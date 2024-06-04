@@ -15,5 +15,8 @@ export class AgendamentoService {
     return this.http.get<Agendamentos[]>(`${API_CONFIG.baseUrl}agendamentos`)
   }
 
+  create(agendamento: Agendamentos): Observable<Agendamentos> {
+    return this.http.post<Agendamentos>(`${API_CONFIG.baseUrl}agendamentos`, agendamento)
+  }
   
 }

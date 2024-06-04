@@ -6,7 +6,7 @@ export interface Agendamentos {
     nomeCliente: string;
     criacao: string;
     data: string;
-    precoEstimado: number;
+    precoEstimado: string;
     statusAgendamento: string;
     metodoPagamento: string;
 }
