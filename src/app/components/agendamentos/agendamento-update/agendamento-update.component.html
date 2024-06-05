@@ -4,48 +4,54 @@
     
       <div class="cabeleireiro"> 
         <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Selecione um cabeleireiro</mat-label>
+            <mat-label>CABELEIREIRO ({{agendamento.nomeCabeleireiro}})</mat-label>
             <mat-select 
+            [(ngModel)]="agendamento.cabeleireiro"
             name="cabeleireiro"
-            [formControl]="" 
+            [formControl]="cabeleireiro" 
             required>
-              <mat-option ></mat-option>
+              <mat-option *ngFor="let cab of cabeleireiros" value="{{ cab.id }}">{{ cab.nome }} </mat-option>
             </mat-select>
           </mat-form-field>
       </div>
 
       <div class="cliente"> 
         <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Selecione um cliente</mat-label>
+            <mat-label>CLIENTE ({{agendamento.nomeCliente}})</mat-label>
             <mat-select
+            [(ngModel)]="agendamento.cliente"
             name="cliente" 
-            [formControl]="" 
+            [formControl]="cliente" 
             required>
-              <mat-option ></mat-option>
+              <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
             </mat-select>
           </mat-form-field>
       </div>
 
-    <form class="form">
+      <form class="form">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Preço Estimado</mat-label>
-          <input
-            name="precoEstimado"
-            [formControl]=""
-            required
-            matInput
-            type="number"
-            step="0.01"
-            placeholder="R$ 55.50">
+            <mat-label>Preço Estimado</mat-label>
+            <span matPrefix>R$</span>
+            <input
+                [(ngModel)]="agendamento.precoEstimado"
+                name="precoEstimado"
+                [formControl]="precoEstimado"
+                required
+                matInput
+                type="number"
+                step="0.01"
+                placeholder="0.00">
         </mat-form-field>
-      </form>
+    </form>
+    
 
       <div class="status-prioridade">
         <mat-form-field appearance="outline">
-            <mat-label>Selecione status agendamento</mat-label>
+            <mat-label>STATUS ({{agendamento.statusAgendamento}})</mat-label>
             <mat-select
+            [(ngModel)]="agendamento.statusAgendamento"
             name="statusAgendamento"
-            [formControl]=""
+            [formControl]="statusAgendamento"
             required>
               <mat-option value="PENDENTE">EM ABERTO</mat-option>
               <mat-option value="CONFIRMADO">AGUARDANDO</mat-option>
@@ -56,10 +62,11 @@
           
           
           <mat-form-field appearance="outline">
-            <mat-label>Selecione metodo de pagamento</mat-label>
+            <mat-label>METODO DE PAGAMENTO({{agendamento.metodoPagamento}})</mat-label>
             <mat-select
+            [(ngModel)]="agendamento.metodoPagamento"
             name="metodoPagamento"
-             [formControl]=""
+             [formControl]="metodoPagamento"
               required>
               <mat-option value="DINHEIRO">DINHEIRO</mat-option>
               <mat-option value="CARTAO_CREDITO">CARTAO CREDITO</mat-option>
@@ -71,12 +78,13 @@
 
       <form class="form">
         <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Data e Hora</mat-label>
+            <mat-label>Data e Hora ({{agendamento.data}})</mat-label>
             <input
+            [(ngModel)]="agendamento.data"
                 matInput
                 [matDatetimepicker]="datetimePicker"
                 name="data"
-                [formControl]=""
+                [formControl]="data"
                 required
                 placeholder="Selecione a data e hora">
             <mat-datetimepicker-toggle matSuffix [for]="datetimePicker"></mat-datetimepicker-toggle>
@@ -85,8 +93,8 @@
     </form>
       
 
-      <button class="full-width mat-elevation-z4" mat-raised-button color="primary">Adicionar</button>
-      <button routerLink="../" class="full-width mat-elevation-z4" mat-stroked-button color="warn">Cancelar</button>
+      <button (click)="update()" [disabled]="!validaCampos()" class="full-width mat-elevation-z4" mat-raised-button color="primary">Adicionar</button>
+      <button routerLink="../../" class="full-width mat-elevation-z4" mat-stroked-button color="warn">Cancelar</button>
       
       <p class="full-width">Desenvolvido por Diogo Nascimento.</p>
 </div>

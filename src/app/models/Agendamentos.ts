@@ -1,5 +1,5 @@
 export interface Agendamentos {
-    id?: number;
+    id?: string;
     cabeleireiro: string;
     cliente: string;
     nomeCabeleireiro: string;
