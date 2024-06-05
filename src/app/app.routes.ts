@@ -13,6 +13,7 @@ import { ClientesCreateComponent } from './components/clientes/clientes-create/c
 import { ClientesUpdateComponent } from './components/clientes/clientes-update/clientes-update.component';
 import { AgendamentoListComponent } from './components/agendamentos/agendamento-list/agendamento-list.component';
 import { AgendamentoCreateComponent } from './components/agendamentos/agendamento-create/agendamento-create.component';
+import { AgendamentoUpdateComponent } from './components/agendamentos/agendamento-update/agendamento-update.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -31,6 +32,7 @@ export const routes: Routes = [
 
             {path: 'agendamentos', component: AgendamentoListComponent},
             {path: 'agendamentos/create', component: AgendamentoCreateComponent},
+            {path: 'agendamentos/update/:id', component: AgendamentoUpdateComponent},
 
         ]
     }
