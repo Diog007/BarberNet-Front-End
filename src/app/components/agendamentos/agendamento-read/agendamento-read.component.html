@@ -1,1 +1,58 @@
-<p>agendamento-read works!</p>
+<div class="container mat-elevation-z8">
+    <h1 class="full-width">Detalhes do Agendamento</h1>
+    <img class="full-width" src="./assets/agendar.svg" alt="Chamado image">
+    
+    <div class="detalhes-agendamento">
+        <div class="detalhe-item">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Cabeleireiro</mat-label>
+                <input matInput [value]="agendamento.nomeCabeleireiro" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Cliente</mat-label>
+                <input matInput [value]="agendamento.nomeCliente" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label> Preço Estimado</mat-label>
+                <input matInput [value]="agendamento.precoEstimado" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item1">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Status do Agendamento</mat-label>
+                <input matInput [value]="agendamento.statusAgendamento" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item2">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Método de Pagamento</mat-label>
+                <input matInput [value]="agendamento.metodoPagamento" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Data e Hora</mat-label>
+                <input matInput [value]="agendamento.data" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="botoes">
+        <a routerLink="../../update/{{ agendamento.id }}">
+            <button   class="full-width mat-elevation-z4" mat-raised-button color="primary">Editar</button>
+            </a>
+        <button routerLink="../../" class="full-width mat-elevation-z4" mat-raised-button color="accent">Voltar</button>
+        <button  class="full-width mat-elevation-z4" mat-raised-button color="warn">Cancelar Agendamento</button>
+    </div>
+
+    <p class="full-width">Desenvolvido por Diogo Nascimento.</p>
+</div>
