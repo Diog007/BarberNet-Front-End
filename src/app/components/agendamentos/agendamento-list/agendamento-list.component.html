@@ -10,6 +10,13 @@
         <mat-icon matSuffix></mat-icon>
       </mat-form-field>
 
+      <mat-radio-group color="primary">
+        <mat-radio-button (click)="orderByStatus('EM_ABERTO')" value="EM_ABERTO">EM ABERTO</mat-radio-button>
+        <mat-radio-button (click)="orderByStatus('AGUARDANDO')" value="AGUARDANDO">AGUARDANDO</mat-radio-button>
+        <mat-radio-button (click)="orderByStatus('CONCLUIDO')" value="CONCLUIDO">CONCLUIDO</mat-radio-button>
+        <mat-radio-button (click)="orderByStatus('CANCELADO')" value="CANCELADO">CANCELADO</mat-radio-button>
+      </mat-radio-group>
+      
 
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">

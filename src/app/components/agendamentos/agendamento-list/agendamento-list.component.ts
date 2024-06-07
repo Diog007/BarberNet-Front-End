@@ -9,13 +9,14 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Agendamentos } from '../../../models/Agendamentos';
 import { AgendamentoService } from '../../../services/agendamento.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-agendamento-list',
   standalone: true,
   imports: [MatPaginatorModule, MatFormFieldModule, MatButtonModule,
     MatInputModule, MatTableModule, RouterLink,
-     MatCheckboxModule, MatRadioModule],
+     MatCheckboxModule, MatRadioModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   templateUrl: './agendamento-list.component.html',
   styleUrl: './agendamento-list.component.css'
 })
@@ -48,4 +49,17 @@ export class AgendamentoListComponent implements OnInit{
       this.dataSource.paginator = this.paginator;
     })
   }
+
+  orderByStatus(status: string): void {
+    let list: Agendamentos[] = [];
+    this.ELEMENT_DATA.forEach(element => {
+      if (element.statusAgendamento === status) {
+        list.push(element);
+      }
+    });
+    this.FILTERED_DATA = list;
+    this.dataSource = new MatTableDataSource<Agendamentos>(list);
+    this.dataSource.paginator = this.paginator;
+  }
+
 }
