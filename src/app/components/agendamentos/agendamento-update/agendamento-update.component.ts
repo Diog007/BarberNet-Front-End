@@ -44,6 +44,7 @@ export class AgendamentoUpdateComponent implements OnInit{
     precoEstimado: '',
     statusAgendamento: '',
     metodoPagamento: '',
+    observacao: ''
   }
 
   clientes: Clientes[] = [];
@@ -55,6 +56,7 @@ export class AgendamentoUpdateComponent implements OnInit{
   precoEstimado: FormControl = new FormControl(null, [Validators.required])
   statusAgendamento: FormControl = new FormControl(null, [Validators.required])
   metodoPagamento: FormControl = new FormControl(null, [Validators.required])
+  observacao: FormControl = new FormControl(null, [Validators.required])
 
   constructor (
     private clienteService: ClientesService,

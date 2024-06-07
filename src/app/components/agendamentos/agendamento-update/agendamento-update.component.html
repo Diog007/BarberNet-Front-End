@@ -30,6 +30,19 @@
 
       <form class="form">
         <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Observações</mat-label>
+            <input
+                [(ngModel)]="agendamento.observacao"
+                name="observacao"
+                [formControl]="observacao"
+                matInput
+                type="text"
+                placeholder="Adicione observações adicionais">
+        </mat-form-field>
+    </form>
+
+      <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Preço Estimado</mat-label>
             <span matPrefix>R$</span>
             <input
@@ -43,8 +56,7 @@
                 placeholder="0.00">
         </mat-form-field>
     </form>
-    
-
+ 
       <div class="status-prioridade">
         <mat-form-field appearance="outline">
             <mat-label>STATUS ({{agendamento.statusAgendamento}})</mat-label>

@@ -9,4 +9,5 @@ export interface Agendamentos {
     precoEstimado: string;
     statusAgendamento: string;
     metodoPagamento: string;
+    observacao: string;
 }

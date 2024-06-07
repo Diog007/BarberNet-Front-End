@@ -42,6 +42,7 @@ export class AgendamentoCreateComponent implements OnInit{
     precoEstimado: '',
     statusAgendamento: '',
     metodoPagamento: '',
+    observacao: ''
   }
 
   clientes:       Clientes[] = []
@@ -53,6 +54,7 @@ export class AgendamentoCreateComponent implements OnInit{
   precoEstimado:      FormControl = new FormControl(null, [Validators.required])
   statusAgendamento:  FormControl = new FormControl(null, [Validators.required])
   metodoPagamento:    FormControl = new FormControl(null, [Validators.required])
+  observacao:         FormControl = new FormControl(null, [Validators.required])
 
   constructor(
     private agendamentoService:   AgendamentoService,
@@ -96,5 +98,6 @@ export class AgendamentoCreateComponent implements OnInit{
     return this.cabeleireiro.valid && this.cliente.valid &&
       this.data.valid && this.precoEstimado.valid &&
       this.statusAgendamento.valid && this.metodoPagamento.valid 
+      && this.observacao.valid 
   }
 }

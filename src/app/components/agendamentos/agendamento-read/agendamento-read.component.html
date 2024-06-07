@@ -20,6 +20,13 @@
         <div class="detalhe-item">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label> Preço Estimado</mat-label>
+                <input matInput [value]="agendamento.observacao" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="detalhe-item">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label> Preço Estimado</mat-label>
                 <input matInput [value]="agendamento.precoEstimado" disabled>
             </mat-form-field>
         </div>

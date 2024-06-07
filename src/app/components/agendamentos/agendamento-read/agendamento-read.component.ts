@@ -40,6 +40,7 @@ ngOnInit(): void {
     precoEstimado: '',
     statusAgendamento: '',
     metodoPagamento: '',
+    observacao: ''
   }
 
   constructor(
