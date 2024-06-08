@@ -64,8 +64,15 @@ export class AgendamentoCreateComponent implements OnInit{
     private router:               Router
   ) { }
 
-  create(): void {
+  convertDateToLocalISOString(date: Date): string {
+    const tzOffset = -date.getTimezoneOffset() * 60000; // offset in milliseconds
+    const localISOTime = new Date(date.getTime() + tzOffset).toISOString().slice(0, -1);
+    return localISOTime;
+  }
 
+  create(): void {
+    const dateValue = new Date(this.data.value);
+    this.agendamento.data = this.convertDateToLocalISOString(dateValue);
     this.agendamentoService.create(this.agendamento).subscribe(resp => {
       this.toastService.success('Agendamento realizado com sucesso!', "Agendamento");
       this.router.navigate(['agendamentos']);
