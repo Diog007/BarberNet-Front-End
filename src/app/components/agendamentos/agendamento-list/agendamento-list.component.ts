@@ -6,23 +6,33 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Agendamentos } from '../../../models/Agendamentos';
 import { AgendamentoService } from '../../../services/agendamento.service';
 import { MatSelectModule } from '@angular/material/select';
+import { AgendamentosStatus } from '../../../models/AgendamentosStatus';
+import { ToastrService } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-agendamento-list',
   standalone: true,
   imports: [MatPaginatorModule, MatFormFieldModule, MatButtonModule,
     MatInputModule, MatTableModule, RouterLink,
-     MatCheckboxModule, MatRadioModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+     MatCheckboxModule, MatRadioModule, MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatButtonModule, MatMenuModule],
   templateUrl: './agendamento-list.component.html',
   styleUrl: './agendamento-list.component.css'
 })
 export class AgendamentoListComponent implements OnInit{
   ngOnInit(): void {
     this.findAll();
+  }
+
+  agendamentoStatus: AgendamentosStatus = {
+    id: '',
+    status: '',
   }
 
   ELEMENT_DATA: Agendamentos[] = []
@@ -33,9 +43,19 @@ export class AgendamentoListComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor (private service: AgendamentoService) { }
+  constructor (private service: AgendamentoService, private toastService: ToastrService, private router: Router) { }
 
+  updateStatus(agendamento: Agendamentos): void {
+    this.agendamentoStatus.id = agendamento.id;
+    this.agendamentoStatus.status = agendamento.statusAgendamento;
 
+    this.service.updateStatus(this.agendamentoStatus).subscribe(resp => {
+      this.toastService.info('Status atualizado com sucesso!', "Status");
+      this.findAll();
+    }, ex => {
+      this.toastService.error(ex.error.error);
+    })
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
