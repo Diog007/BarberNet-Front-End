@@ -15,17 +15,23 @@ import { ToastrService } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import moment from 'moment';
+
 
 @Component({
   selector: 'app-agendamento-list',
   standalone: true,
   imports: [MatPaginatorModule, MatFormFieldModule, MatButtonModule,
-    MatInputModule, MatTableModule, RouterLink,
+    MatInputModule, MatTableModule, RouterLink, 
      MatCheckboxModule, MatRadioModule, MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatButtonModule, MatMenuModule],
   templateUrl: './agendamento-list.component.html',
   styleUrl: './agendamento-list.component.css'
 })
 export class AgendamentoListComponent implements OnInit{
+
+  daysOfWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+
   ngOnInit(): void {
     this.findAll();
   }
@@ -74,6 +80,20 @@ export class AgendamentoListComponent implements OnInit{
     let list: Agendamentos[] = [];
     this.ELEMENT_DATA.forEach(element => {
       if (element.statusAgendamento === status) {
+        list.push(element);
+      }
+    });
+    this.FILTERED_DATA = list;
+    this.dataSource = new MatTableDataSource<Agendamentos>(list);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  filterByDayOfWeek(day: string): void {
+    const dayIndex = this.daysOfWeek.indexOf(day);
+    const list: Agendamentos[] = [];
+    this.ELEMENT_DATA.forEach(element => {
+      const elementDay = moment(element.data, 'DD/MM/YYYY HH:mm:ss').day();
+      if (elementDay === dayIndex) {
         list.push(element);
       }
     });
