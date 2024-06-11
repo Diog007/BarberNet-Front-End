@@ -1,42 +1,115 @@
 .container {
-    height: 100%;
+   height: 105%;
+   background-color: #D9D9D9;
+ }
+ 
+ .menu-panel {
+   display: flex;
+   justify-content: center;
+ }
+ 
+ .menu-panel .mat-menu-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ a {
+  border: 0.001rem solid #c8d7e2;
+ }
+
+ .opcoes {
+  border: 0.1rem solid #050707;
+  width: 100%;
+  height: 100%;
+  background-color: #716464;
+  color: #ffffff;
  }
  
  .sidenav {
-    width: 20rem;
-    color: white;
-    background: rgb(81,115,215);
-   background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+   width: 25rem;
+   color: #ffffff;
+   background: #333333;
+   background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
  }
  
  img {
-    width: 100%;
-    height: 8rem;
-    margin: .8rem auto 1rem auto;
+   width: 80%;
+   height: 17rem;
+   margin: 1rem auto 0rem auto;
+   margin-left: 3rem;
  }
  
  .sidenav a {
-    color: white;
- }
+  color: #ffffff !important;
+  font-size: 1.2rem;
+  margin: 0.3rem 2;
+  display: flex;
+  align-items: center;
+}
  
  .sidenav i {
-    margin-right: .6rem;
+   margin-right: 0.8rem;
+   margin-left: 2.0rem;
+
+   font-size: 1.8rem;
+   color: #ffffff;
  }
  
  .menu {
-    margin: 1rem 0 0 1rem;
-    color: white;
-    background: rgb(81,115,215);
-background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+   margin: 1rem 0 0 1rem;
+   color: #ffffff;
+   background: #333333;
+   background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
+   border: 1px solid #444;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
  }
 
- mat-form-field{
+ .cor {
+   color: #fdfdfd;
+ }
+ 
+ mat-form-field {
    width: 100%;
    height: 2%;
-
  }
-
- mat-label, mat-select, mat-form-field, mat-label, mat-option{
-   background: rgb(81,115,215);
-   background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+ 
+ mat-label, mat-select, mat-form-field, mat-label, mat-option {
+   background: #333333;
+   background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
+   color: #ffffff;
  }
+ 
+ .mat-list-item {
+   border-radius: 5px;
+   transition: background-color 0.3s, transform 0.3s;
+   color: #ffffff !important;
+ }
+ 
+ .mat-list-item:hover {
+   background-color: rgba(255, 255, 255, 0.1);
+   transform: translateX(5px);
+ }
+ 
+ .opcoes a {
+   color: #ffffff !important;
+   font-size: 1rem;
+ }
+ 
+ button.menu {
+   background-color: #333333;
+   color: #ffffff;
+   border: 1px solid #444;
+   transition: background-color 0.3s, transform 0.3s;
+ }
+ 
+ button.menu:hover {
+   background-color: #444444;
+   transform: scale(1.05);
+ }
+ 
+ mat-icon {
+   color: #ffffff;
+ }
+ 
