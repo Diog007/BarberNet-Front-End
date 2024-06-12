@@ -19,6 +19,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 })
 export class NavComponent implements OnInit {
 
+  openLink(url: string): void {
+    window.open(url, '_blank');
+  }
+
   constructor(private router: Router, private serviceAuth: AuthService, private toast: ToastrService  ) { }
 
   ngOnInit(): void {
