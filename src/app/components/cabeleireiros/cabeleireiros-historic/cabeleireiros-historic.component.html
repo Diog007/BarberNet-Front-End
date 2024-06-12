@@ -1,1 +1,109 @@
+<div class="container">
 
+    <h1 >Listando Agendamentos</h1>
+
+    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Novo Agendamento</button>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Buscar...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Digite aqui" #input>
+        <mat-icon matSuffix></mat-icon>
+      </mat-form-field>
+
+      <mat-radio-group color="primary">
+        <mat-radio-button (click)="orderByStatus('EM_ABERTO')" value="EM_ABERTO">EM ABERTO</mat-radio-button>
+        <mat-radio-button (click)="orderByStatus('CONCLUIDO')" value="CONCLUIDO">CONCLUIDO</mat-radio-button>
+        <mat-radio-button (click)="orderByStatus('CANCELADO')" value="CANCELADO">CANCELADO</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group (change)="filterByDayOfWeek($event.value)" color="primary">
+        <mat-radio-button *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+            
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="criacao">
+              <th mat-header-cell *matHeaderCellDef> Data de Abertura </th>
+              <td mat-cell *matCellDef="let element"> {{element.criacao}} </td>
+            </ng-container>
+            
+          <ng-container matColumnDef="nomeCabeleireiro">
+            <th mat-header-cell *matHeaderCellDef> Cabeleireiro </th>
+            <td mat-cell *matCellDef="let element"> {{element.nomeCabeleireiro}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="nomeCliente">
+            <th mat-header-cell *matHeaderCellDef> Cliente </th>
+            <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
+          </ng-container>
+          
+          
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef> Data e hora do Agendamento </th>
+            <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="observacao">
+              <th mat-header-cell *matHeaderCellDef> Observação </th>
+              <td mat-cell *matCellDef="let element"> {{element.observacao}} </td>
+            </ng-container>
+
+          <ng-container matColumnDef="precoEstimado">
+            <th mat-header-cell *matHeaderCellDef> Preço </th>
+            <td mat-cell *matCellDef="let element">R$ {{element.precoEstimado}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="statusAgendamento">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-select>
+                </mat-select>
+            </td>
+        </ng-container>
+        
+          <ng-container matColumnDef="metodoPagamento">
+            <th mat-header-cell *matHeaderCellDef> Metodo de pagamento</th>
+            <td mat-cell *matCellDef="let element"> {{element.metodoPagamento}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes1">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-form-field>
+                <mat-label>{{element.metodoPagamento}}</mat-label>
+                <mat-select>
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let element"> 
+              <a routerLink="update/{{ element.id }}">
+                <i class="material-icons edit">edit</i>
+              </a> 
+              <a routerLink="read/{{element.id}}">
+                <i class="material-icons delete">visibility</i>
+              </a> 
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[10, 15, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+</div>
