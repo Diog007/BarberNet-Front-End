@@ -1,16 +1,19 @@
 .container {
     height: 100%;
-    background: rgb(81,115,215);
-    background: linear-gradient(90deg, rgba(81,115,215,0.9669117647058824) 0%, rgba(39,46,126,0.9248949579831933) 70%);
+    background-image: url('/assets/imagemLogin.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .form {
     width: 30rem;
     margin: auto;
-    background-color: rgb(235, 235, 235);
+    background: linear-gradient(90deg, #ffffff 0%, #cec3be 70%);
     padding: 1.8rem 3.5rem;
     border-radius: 1rem;
     gap: 10rem;
@@ -22,7 +25,7 @@ h1 {
 }
 
 img {
-    height: 23rem;
+    height: 26rem;
     width: 100%;
     margin: 1.5rem auto 1.5rem auto;
 }
