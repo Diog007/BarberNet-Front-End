@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h1 >Historico do cabeleireiro {{nomeCabeleireiro}}</h1>
+    <h1 >Historico do cliente {{nomeCliente}}</h1>
 
     <mat-form-field appearance="outline">
         <mat-label>Buscar...</mat-label>
@@ -30,18 +30,17 @@
               <th mat-header-cell *matHeaderCellDef> Data de Abertura </th>
               <td mat-cell *matCellDef="let element"> {{element.criacao}} </td>
             </ng-container>
+
+            <ng-container matColumnDef="nomeCliente">
+              <th mat-header-cell *matHeaderCellDef> Cliente </th>
+              <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
+            </ng-container>
             
           <ng-container matColumnDef="nomeCabeleireiro">
             <th mat-header-cell *matHeaderCellDef> Cabeleireiro </th>
             <td mat-cell *matCellDef="let element"> {{element.nomeCabeleireiro}} </td>
           </ng-container>
       
-          <ng-container matColumnDef="nomeCliente">
-            <th mat-header-cell *matHeaderCellDef> Cliente </th>
-            <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
-          </ng-container>
-          
-          
           <ng-container matColumnDef="data">
             <th mat-header-cell *matHeaderCellDef> Data e hora do Agendamento </th>
             <td mat-cell *matCellDef="let element"> {{element.data}} </td>

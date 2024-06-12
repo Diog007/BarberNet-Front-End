@@ -24,6 +24,10 @@ export class AgendamentoService {
     return this.http.get<Agendamentos[]>(`${API_CONFIG.baseUrl}agendamentos/cabeleireiro/${id}`)
   }
 
+  findAll2(id: any): Observable<Agendamentos[]> {
+    return this.http.get<Agendamentos[]>(`${API_CONFIG.baseUrl}agendamentos/cliente/${id}`)
+  }
+
   create(agendamento: Agendamentos): Observable<Agendamentos> {
     return this.http.post<Agendamentos>(`${API_CONFIG.baseUrl}agendamentos`, agendamento)
   }

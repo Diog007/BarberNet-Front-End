@@ -16,6 +16,7 @@ import { AgendamentoCreateComponent } from './components/agendamentos/agendament
 import { AgendamentoUpdateComponent } from './components/agendamentos/agendamento-update/agendamento-update.component';
 import { AgendamentoReadComponent } from './components/agendamentos/agendamento-read/agendamento-read.component';
 import { CabeleireirosHistoricComponent } from './components/cabeleireiros/cabeleireiros-historic/cabeleireiros-historic.component';
+import { ClientesHistoricComponent } from './components/clientes/clientes-historic/clientes-historic.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -32,6 +33,8 @@ export const routes: Routes = [
             {path: 'clientes/create', component: ClientesCreateComponent},
             {path: 'clientes/delete/:id', component: ClientesDeleteComponent},
             {path: 'clientes/update/:id', component: ClientesUpdateComponent},
+            {path: 'clientes/historic/:id', component: ClientesHistoricComponent},
+
 
             {path: 'agendamentos', component: AgendamentoListComponent},
             {path: 'agendamentos/create', component: AgendamentoCreateComponent},
