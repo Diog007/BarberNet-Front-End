@@ -15,7 +15,7 @@
  }
 
  a {
-  border: 0.001rem solid #c8d7e2;
+  border: 0.001rem solid #ed7e7a;
  }
 
  .oi {
@@ -40,6 +40,8 @@
    background: #333333;
    background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 0.01rem solid #ed7e7a;
+
  }
  
  img {
@@ -56,7 +58,7 @@
   display: flex;
   align-items: center;
 }
- 
+
  .sidenav i {
    margin-right: 0.8rem;
    margin-left: 2.0rem;
