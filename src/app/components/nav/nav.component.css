@@ -40,7 +40,7 @@
    background: #333333;
    background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: 0.01rem solid #ed7e7a;
+    border: 0.01rem solid #ed7e7a;
 
  }
  

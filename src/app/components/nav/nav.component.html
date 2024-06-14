@@ -1,67 +1,97 @@
 <mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-       <img src="./assets/login.png" alt="Imagem de navegação">
-       <mat-nav-list class="nav-list">
-  
-          <a mat-list-item routerLink="home">
-             <i class="material-icons">home</i>
-             <span class="cor">HOME</span> 
-          </a>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <img src="./assets/login.png" alt="Imagem de navegação" />
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="home">
+        <i class="material-icons">home</i>
+        <span class="cor">HOME</span>
+      </a>
 
-          <a mat-list-item routerLink="ponto">
-            <i class="material-icons">history</i>
-            <span class="cor">PONTO</span> 
-         </a>
+      <a mat-list-item [matMenuTriggerFor]="afterMenu2">
+        <i class="material-icons">support</i>
+        <span class="cor">AGENDAMENTOS</span>
+        <mat-menu class="oi" #afterMenu2="matMenu" xPosition="before">
+          <button class="opcoes" mat-menu-item routerLink="agendamentos">
+            Listar agendamentos
+          </button>
+          <button class="opcoes" mat-menu-item routerLink="agendamentos/create">
+            Cadastrar agendamentos
+          </button>
+        </mat-menu>
+      </a>
 
-            <a mat-list-item [matMenuTriggerFor]="afterMenu">
-              <i class="material-icons">content_cut</i>
-              <span class="cor" >CABELEIREIROS</span> 
-              <mat-menu class="oi" #afterMenu="matMenu" xPosition="before">
-                <button class="opcoes" mat-menu-item routerLink="cabeleireiros">Listar cabeleireiros</button>
-                <button class="opcoes" mat-menu-item routerLink="cabeleireiros/create">Cadastrar cabeleireiros</button>
-              </mat-menu>
-            </a>
+      
+      <a mat-list-item [matMenuTriggerFor]="afterMenu">
+        <i class="material-icons">content_cut</i>
+        <span class="cor">CABELEIREIROS</span>
+        <mat-menu class="oi" #afterMenu="matMenu" xPosition="before">
+          <button class="opcoes" mat-menu-item routerLink="cabeleireiros">
+            Listar cabeleireiros
+          </button>
+          <button
+          class="opcoes"
+          mat-menu-item
+          routerLink="cabeleireiros/create"
+          >
+          Cadastrar cabeleireiros
+        </button>
+      </mat-menu>
+    </a>
+    
+    <a mat-list-item [matMenuTriggerFor]="afterMenu1">
+      <i class="material-icons">person</i>
+      <span class="cor">CLIENTES</span>
+      <mat-menu class="oi" #afterMenu1="matMenu" xPosition="before">
+        <button class="opcoes" mat-menu-item routerLink="clientes">
+          Listar clientes
+        </button>
+        <button class="opcoes" mat-menu-item routerLink="clientes/create">
+          Cadastrar clientes
+        </button>
+      </mat-menu>
+    </a>
+    
+    <a mat-list-item routerLink="ponto">
+      <i class="material-icons">history</i>
+      <span class="cor">PONTO</span>
+    </a>
+    
+    <a mat-list-item [matMenuTriggerFor]="afterMenu3">
+      <i class="material-icons">code</i>
+      <span class="cor">GITHUB</span>
+      <mat-menu class="oi" #afterMenu3="matMenu" xPosition="before">
+        <button
+        class="opcoes"
+        mat-menu-item
+        (click)="openLink('https://github.com/Diog007/barbernet-backend')"
+        >
+        GitHub Back-End
+      </button>
+      <button
+      class="opcoes"
+      mat-menu-item
+      (click)="openLink('https://github.com/Diog007/BarberNet-Front-End')"
+      >
+      GitHub Front-End
+    </button>
+  </mat-menu>
+</a>
 
-            <a mat-list-item [matMenuTriggerFor]="afterMenu1">
-               <i class="material-icons">person</i>
-               <span class="cor" >CLIENTES</span> 
-               <mat-menu class="oi" #afterMenu1="matMenu" xPosition="before">
-                 <button class="opcoes" mat-menu-item routerLink="clientes">Listar clientes</button>
-                 <button class="opcoes" mat-menu-item routerLink="clientes/create">Cadastrar clientes</button>
-               </mat-menu>
-             </a>
+<a mat-list-item (click)="logout()">
+  <i class="material-icons">logout</i>
+  <span class="cor">LOGOUT</span>
+</a>
+</mat-nav-list>
+  </mat-drawer>
 
-             <a mat-list-item [matMenuTriggerFor]="afterMenu2">
-               <i class="material-icons">support</i>
-               <span class="cor" >AGENDAMENTOS</span> 
-               <mat-menu class="oi" #afterMenu2="matMenu" xPosition="before">
-                 <button class="opcoes" mat-menu-item routerLink="agendamentos">Listar agendamentos</button>
-                 <button class="opcoes" mat-menu-item routerLink="agendamentos/create">Cadastrar agendamentos</button>
-               </mat-menu>
-             </a>
-
-             <a mat-list-item [matMenuTriggerFor]="afterMenu3">
-               <i class="material-icons">code</i>
-               <span class="cor">GITHUB</span> 
-               <mat-menu class="oi" #afterMenu3="matMenu" xPosition="before">
-                 <button class="opcoes" mat-menu-item (click)="openLink('https://github.com/Diog007/barbernet-backend')">GitHub Back-End</button>
-                 <button class="opcoes" mat-menu-item (click)="openLink('https://github.com/Diog007/BarberNet-Front-End')">GitHub Front-End</button>
-               </mat-menu>
-             </a>
-             
-          <a mat-list-item (click)="logout()" >
-             <i class="material-icons">logout</i>
-             <span class="cor">LOGOUT</span> 
-          </a>
-          
-       </mat-nav-list>
-    </mat-drawer>
-  
-    <div class="sidenav-content">
-       <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
-          <mat-icon>menu</mat-icon>
-       </button>
-       <router-outlet></router-outlet>
-    </div>
-  
-  </mat-drawer-container>
+  <div class="sidenav-content">
+    <button
+      class="menu mat-elevation-z8"
+      (click)="drawer.toggle()"
+      mat-icon-button
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

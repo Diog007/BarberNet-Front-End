@@ -1,31 +1,47 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  margin-right: 4rem;
+}
+
+
+.cpf-container {
+  width: 40%;
+  margin-right: 3rem;
+  margin-left: 4rem;
+  margin-top: 5rem;
+}
+
+.cpf-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.5rem;
+}
+
 .container {
-    width: 90%;
-    margin: auto;
+  margin-top: 5rem;
+  width: 49%;
 }
 
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-  mat-form-field {
-    width: 100%;
-  }
+mat-form-field {
+  width: 100%;
+}
 
-  button{
-    width: 100%;
-    margin: .8rem auto;
-  }
+button {
+  width: 100%;
+}
 
-  h1{
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .edit {
-    color: rgb(0, 149, 255);
-  }
-
-  .delete {
-    color: red;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
