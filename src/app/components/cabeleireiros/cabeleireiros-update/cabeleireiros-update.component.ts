@@ -62,6 +62,15 @@ export class CabeleireirosUpdateComponent implements OnInit {
     this.service.update(this.cabeleireiro).subscribe(() => {
       this.toast.success('Cabeleireiro atualizado com sucesso!', 'Update')
       this.router.navigate(['cabeleireiros'])
+    }, ex => {
+      console.log(ex);
+      if (ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
     })
   }
 
