@@ -1,5 +1,5 @@
 .container {
-    width: 35rem;
+    width: 60rem;
     margin: auto;
     padding: 1rem;
     border-radius: .6rem;
@@ -7,6 +7,18 @@
 
 .fullWidth {
     width: 100%;
+}
+
+.halfWidth {
+    width: calc(50% - 1rem); /* 50% do width com espaço entre os campos */
+}
+
+.halfWidth1{
+    width: calc(85% - 5rem); /* 50% do width com espaço entre os campos */
+}
+
+.endereco  {
+    text-align: center;
 }
 
 h1, p {

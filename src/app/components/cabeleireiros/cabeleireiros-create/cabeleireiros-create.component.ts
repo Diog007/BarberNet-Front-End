@@ -30,13 +30,20 @@ export class CabeleireirosCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    cabeleireiro: CabeleireirosCreate = {
-      id: "",
-      nome: "",
-      telefone: "",
-      email: "",
-      cpf: "",
+  cabeleireiro: CabeleireirosCreate = {
+    nome: '',
+    telefone: '',
+    email: '',
+    cpf: '',
+    endereco: {
+      logradouro: '',
+      bairro: '',
+      cep: '',
+      cidade: '',
+      uf: '',
+      numero: ''
     }
+  }
 
     nome: FormControl = new FormControl(null, Validators.minLength(3))
     telefone: FormControl = new FormControl(null, Validators.minLength(11))

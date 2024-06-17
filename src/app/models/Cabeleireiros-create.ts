@@ -4,4 +4,12 @@ export interface CabeleireirosCreate {
     telefone: string;
     email: string;
     cpf: string;
+    endereco?: {
+        logradouro?: string;
+        bairro: string;
+        cep: string;
+        cidade: string;
+        uf: string;
+        numero?: string;
+      };
 }
