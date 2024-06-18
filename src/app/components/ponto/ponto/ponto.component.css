@@ -13,6 +13,10 @@
   margin-top: 5rem;
 }
 
+.lista {
+  background-color: rgba(63, 67, 67, 0.023);
+}
+
 .cpf-container h2 {
   text-align: center;
   margin-bottom: 1.5rem;

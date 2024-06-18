@@ -1,6 +1,6 @@
 .container {
    height: 105%;
-   background-color: #eeeaee;
+   background-color: #6060634a;
  }
  
  .menu-panel {
@@ -15,7 +15,7 @@
  }
 
  a {
-  border: 0.001rem solid #ed7e7a;
+  border: 0.11rem solid #15121264;
  }
 
  .oi {
@@ -37,10 +37,9 @@
  .sidenav {
    width: 25rem;
    color: #ffffff;
-   background: #333333;
-   background: linear-gradient(90deg, #333333 0%, #1c1c1c 70%);
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 0.01rem solid #ed7e7a;
+   background: #645c5c;
+   background: linear-gradient(90deg, #333333 0%, #5c5c64 70%);
+   box-shadow: 0 4px 8px rgba(0, 0, 0);
 
  }
  

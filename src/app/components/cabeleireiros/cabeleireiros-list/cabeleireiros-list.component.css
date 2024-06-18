@@ -11,10 +11,21 @@ table {
     width: 100%;
   }
 
+.lista {
+    background-color: rgba(63, 67, 67, 0.023);
+  }
+
+  mat-paginator {
+    background-color: rgb(63, 67, 67);
+
+  }
+
   button{
     width: 100%;
     margin: .8rem auto;
+    background-color: #829eb6;
   }
+
 
   h1{
     width: 100%;

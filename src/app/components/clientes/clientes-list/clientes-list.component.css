@@ -14,6 +14,11 @@ table {
   button{
     width: 100%;
     margin: .8rem auto;
+    background-color: #829eb6;
+  }
+
+  .lista {
+    background-color: rgba(63, 67, 67, 0.023);
   }
 
   h1{
