@@ -39,18 +39,32 @@ export class CabeleireirosUpdateComponent implements OnInit {
          
     ) { }
 
-  cabeleireiro: CabeleireirosCreate = {
-    id: '',
-    nome: '',
-    telefone: '',
-    email: '',
-    cpf: '',
-  }
+    cabeleireiro: CabeleireirosCreate = {
+      nome: '',
+      telefone: '',
+      email: '',
+      cpf: '',
+      endereco: {
+        logradouro: '',
+        bairro: '',
+        cep: '',
+        cidade: '',
+        uf: '',
+        numero: ''
+      }
+    }
 
-  nome: FormControl = new FormControl(null, Validators.minLength(3))
-  telefone: FormControl = new FormControl(null, Validators.minLength(3))
-  email: FormControl = new FormControl(null, Validators.minLength(3))
-  cpf: FormControl = new FormControl(null, Validators.minLength(3))
+    nome: FormControl = new FormControl(null, Validators.minLength(3))
+    telefone: FormControl = new FormControl(null, Validators.minLength(11))
+    email: FormControl = new FormControl(null, Validators.email)
+    cpf: FormControl = new FormControl(null, Validators.minLength(11))
+
+    logradouro: FormControl = new FormControl(null, Validators.required)
+    bairro: FormControl = new FormControl(null, Validators.required)
+    cep: FormControl = new FormControl(null, Validators.required)
+    cidade: FormControl = new FormControl(null, Validators.required)
+    uf: FormControl = new FormControl(null, Validators.required)
+    numero: FormControl = new FormControl(null, Validators.required)
 
   findById(): void {
     this.service.findById(this.cabeleireiro.id).subscribe(resp => {
@@ -77,6 +91,8 @@ export class CabeleireirosUpdateComponent implements OnInit {
 
   validaCampos(): boolean {
     return this.nome.valid && this.telefone.valid 
-    && this.email.valid && this.cpf.valid
+    && this.email.valid && this.cpf.valid && this.logradouro.valid 
+    && this.cep.valid && this.cidade.valid && this.uf.valid 
+    && this.numero.valid
   }
 }
