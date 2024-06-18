@@ -30,13 +30,20 @@ export class CabeleireirosDeleteComponent implements OnInit {
     this.findById();
   }
 
-  cabeleireiro: CabeleireirosCreate = {
-    id: '',
-    nome: '',
-    email: '',
-    telefone: '',
-    cpf: ''
-  }
+    cabeleireiro: CabeleireirosCreate = {
+      nome: '',
+      telefone: '',
+      email: '',
+      cpf: '',
+      endereco: {
+        logradouro: '',
+        bairro: '',
+        cep: '',
+        cidade: '',
+        uf: '',
+        numero: ''
+      }
+    }
 
   constructor (
     private service: CabeleireirosService,
