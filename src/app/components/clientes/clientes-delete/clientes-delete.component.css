@@ -9,6 +9,13 @@
     width: 100%;
 }
 
+.imge {
+    width: 10rem;
+    height: 10rem;
+    margin-left: 12rem;
+    margin-bottom: 1rem;
+}
+
 h1, p {
     text-align: center;
 }

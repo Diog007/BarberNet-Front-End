@@ -67,18 +67,39 @@ export class AgendamentoUpdateComponent implements OnInit{
     private route: ActivatedRoute 
   ) {  }
 
+  convertDateToLocalISOString(date: Date): string {
+    const tzOffset = -date.getTimezoneOffset() * 60000; // offset in milliseconds
+    const localISOTime = new Date(date.getTime() + tzOffset).toISOString().slice(0, -1);
+    return localISOTime;
+  }
+
   update(): void {
+    const dateValue = new Date(this.data.value);
+    this.agendamento.data = this.convertDateToLocalISOString(dateValue);
     this.agendamentoService.update(this.agendamento).subscribe (resposta => {
       this.toastService.success('Agendamento atualizado com sucesso!', "Atualizar");
       this.router.navigate(['agendamentos']);     
     }, ex => {
-      this.toastService.error(ex.error.error);
-    })
+      console.log(ex);
+      if (ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toastService.error(element.message);
+        });
+      } else {
+        this.toastService.error(ex.error.message);
+      }
+    });
   }
 
   findById(): void {
     this.agendamentoService.findById(this.agendamento.id).subscribe(resp => {
       this.agendamento = resp;
+      if (this.agendamento.data) {
+        const dateValue = new Date(this.agendamento.data);
+        this.agendamento.data = this.convertDateToLocalISOString(dateValue);
+      } else {
+        this.toastService.error('Data inválida recebida do servidor.');
+      }
     }, ex => {
       this.toastService.error(ex.error);
     })
